@@ -1,9 +1,22 @@
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
+import { GalleryItem } from "../ImageCard/GalleryItem";
+import { ReactNode } from "react";
+import { ModalItem } from "./ModalItem";
 
 Modal.setAppElement("#root");
 
-export default function ImageModal({ isOpen, onClose, imageData }) {
+interface ImageModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  imageData: ModalItem | null;
+}
+
+export default function ImageModal({
+  isOpen,
+  onClose,
+  imageData,
+}: ImageModalProps): JSX.Element | null {
   if (!isOpen || !imageData) return null;
 
   const {

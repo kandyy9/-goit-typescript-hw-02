@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchImages } from "./../../unsplashGalleryAPI";
+import { fetchImages } from "../../unsplashGalleryAPI";
 import SearchBar from "../SearchBar/SearchBar";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import LoadMoreBtn from "../LoadmoreBtn/LoadMoreBtn";
@@ -7,16 +7,18 @@ import Loader from "../Loader/Loader";
 import ImageModal from "../ImageModal/ImageModal";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import css from "./App.module.css";
+import { GalleryItem } from "./../ImageCard/GalleryItem";
+import { ModalItem } from "../ImageModal/ModalItem";
 
 export default function App() {
-  const [images, setImages] = useState([]);
-  const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedImageData, setSelectedImageData] = useState(null);
-  const [endOfCollection, setEndOfCollection] = useState(false);
+  const [images, setImages] = useState<GalleryItem[]>([]);
+  const [query, setQuery] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<null | string>(null);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [selectedImageData, setSelectedImageData] = useState<ModalItem>();
+  const [endOfCollection, setEndOfCollection] = useState<boolean>(false);
 
   useEffect(() => {
     if (!query) return;
@@ -45,7 +47,7 @@ export default function App() {
     fetchData();
   }, [query, page]);
 
-  const handleSearch = (newQuery) => {
+  const handleSearch = (newQuery: string) => {
     setQuery(newQuery);
     setPage(1);
     setImages([]);
@@ -56,7 +58,11 @@ export default function App() {
     setPage((prevPage) => prevPage + 1);
   };
 
-  const toggleModal = (imageData) => {
+  const toggleModal = (imageData: ModalItem | null) => {
+    if (modalIsOpen && imageData === null) {
+      setModalIsOpen(false);
+      return;
+    }
     setModalIsOpen(!modalIsOpen);
     setSelectedImageData(imageData || null);
   };

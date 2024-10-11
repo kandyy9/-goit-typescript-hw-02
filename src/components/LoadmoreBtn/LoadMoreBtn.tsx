@@ -1,6 +1,10 @@
 import css from "./LoadMoreBtn.module.css";
 
-export default function LoadMoreBtn({ handleClick }) {
+interface LoadMoreBtnProps {
+  handleClick: () => void;
+}
+
+export default function LoadMoreBtn({ handleClick }: LoadMoreBtnProps) {
   return (
     <>
       <button className={css.loadMoreBtn} onClick={handleClick}>

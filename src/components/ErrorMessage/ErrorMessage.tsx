@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function ErrorMessage({ message }) {
+interface ErrorMessageProps {
+  message: string;
+}
+
+export default function ErrorMessage({ message }: ErrorMessageProps) {
   useEffect(() => {
     if (message) {
       toast.error(message);

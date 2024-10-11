@@ -3,7 +3,11 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import toast, { Toaster } from "react-hot-toast";
 import css from "./SearchBar.module.css";
 
-export default function SearchBar({ onSearch }) {
+interface SearchBarProps {
+  onSearch: (query: string) => void;
+}
+
+export default function SearchBar({ onSearch }: SearchBarProps) {
   return (
     <header className={css.headerSearch}>
       <Formik
