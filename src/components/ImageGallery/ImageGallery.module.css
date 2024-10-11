@@ -1,0 +1,11 @@
+.imgGallery {
+    max-width: 1700px;
+    list-style-type: none;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}

@@ -1,0 +1,38 @@
+.headerSearch {
+    padding: 20px;
+    background-color: rgb(74, 74, 194);
+}
+
+.searchForm {
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+.container{
+position: relative;
+margin: 0 auto;
+}
+
+.searchInput {
+    width: 450px;
+    padding: 10px;
+    padding-left: 50px;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+}
+
+.searchButton {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: rgb(95, 92, 92);
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px;
+}

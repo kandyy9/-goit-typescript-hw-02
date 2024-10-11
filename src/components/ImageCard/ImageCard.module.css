@@ -1,0 +1,26 @@
+.imgCard {
+    border-radius: 5px;
+    width: 400px;
+    padding: 10px;
+    background-color: rgba(176, 193, 216, 0.562);
+    transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.extraInfo{
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    gap: 30px;
+}
+
+.imgCard:hover {
+    cursor: zoom-in;
+    transform: scale(1.05);
+    background-color: rgba(158, 192, 240, 0.705);
+}
