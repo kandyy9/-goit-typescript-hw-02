@@ -17,7 +17,9 @@ export default function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<null | string>(null);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-  const [selectedImageData, setSelectedImageData] = useState<ModalItem>();
+  const [selectedImageData, setSelectedImageData] = useState<ModalItem | null>(
+    null
+  );
   const [endOfCollection, setEndOfCollection] = useState<boolean>(false);
 
   useEffect(() => {
